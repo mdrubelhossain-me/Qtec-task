@@ -1,8 +1,11 @@
+// ProductCard component displays individual product details and allows adding the product to the cart
 import React, { useContext } from "react";
-import { Link } from 'react-router-dom';
-import { CartContext } from '../context/CartContext.jsx';
+import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext.jsx";
 
+// Receives a single product object as a prop
 const ProductCard = ({ product }) => {
+  // Destructure addToCart function from CartContext
   const { addToCart } = useContext(CartContext);
 
   return (
@@ -15,20 +18,14 @@ const ProductCard = ({ product }) => {
         />
       </Link>
       <Link to={`/products/${product.id}`}>
-        <h3 className="font-semibold text-lg">{product.title}</h3>
+        <h3 className="text-lg hover:text-red-600">{product.title}</h3>
       </Link>
-      <p className="text-sm text-gray-500 mb-1">{product.brand}</p>
-      <p className="text-red-600 font-bold mb-1">${product.price.toFixed(2)}</p>
-      <p
-        className={`text-sm ${
-          product.availability === "In Stock" ? "text-green-600" : "text-red-600"
-        }`}
+      <p className="text-red-600 my-2">${product.price.toFixed(2)}</p>
+      {/* Add to cart button */}
+      <button
+        className="bg-red-500 text-white px-2 py-2 rounded-md"
+        onClick={() => addToCart(product)}
       >
-        {product.availability}
-      </p>
-      <p className="text-gray-600 text-xs mt-2">{product.description}</p>
-
-      <button className="bg-red-500 text-white px-2 py-2" onClick={() => addToCart(product)}>
         Add to cart
       </button>
     </div>
