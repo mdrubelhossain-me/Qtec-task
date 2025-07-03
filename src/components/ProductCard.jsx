@@ -18,7 +18,11 @@ const ProductCard = ({ product }) => {
         />
       </Link>
       <Link to={`/products/${product.id}`}>
-        <h3 className="text-lg hover:text-red-600">{product.title}</h3>
+        <h3 className="text-lg hover:text-red-600">
+          {product.title.split(" ").length > 6
+            ? product.title.split(" ").slice(0, 6).join(" ") + "..."
+            : product.title}
+        </h3>
       </Link>
       <p className="text-red-600 my-2">${product.price.toFixed(2)}</p>
       {/* Add to cart button */}

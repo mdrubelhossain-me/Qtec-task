@@ -30,29 +30,37 @@ const CartSidebar = ({ cartOpen, toggleCart, setCheckoutOpen }) => {
         {cartItems.map((item) => (
           <div
             key={item.id}
-            className="border p-3 rounded-md flex justify-between items-center"
+            className="border p-3 rounded-md"
           >
             <div>
-              <h4 className="font-semibold">{item.name}</h4>
-              <p className="text-sm text-gray-500">
-                ৳{item.price} × {item.quantity}
-              </p>
+              <div className="flex items-start gap-3">
+                <img src={item.image} alt={item.title} className="w-10 h-10 object-cover rounded" />
+                <h4 className="text-md">{item.title.split(' ').length > 4 ? item.title.split(' ').slice(0, 4).join(' ') + '...' : item.title}</h4>
+              </div>
+      
             </div>
             {/* Quantity controls */}
-            <div className="flex items-center gap-2">
-              <button
+            <div className="flex items-center justify-between mt-3">
+            <p className="text-sm text-gray-500 flex items-center gap-1">
+                <span>${item.price}</span>   
+                <X size={10} /> 
+                <span>{item.quantity}</span>
+              </p>
+             <div className=" w-40 flex items-center justify-end gap-3">
+             <button
                 className="bg-gray-200 p-1 rounded"
                 onClick={() => decreaseQty(item.id)}
               >
-                <Minus size={16} />
+                <Minus size={14} />
               </button>
-              <span>{item.quantity}</span>
+              <span className="w-4 text-center text-sm">{item.quantity}</span>
               <button
                 className="bg-gray-200 p-1 rounded"
                 onClick={() => increaseQty(item.id)}
               >
-                <Plus size={16} />
+                <Plus size={14} />
               </button>
+             </div>
             </div>
           </div>
         ))}
@@ -62,7 +70,7 @@ const CartSidebar = ({ cartOpen, toggleCart, setCheckoutOpen }) => {
       <div className="mt-6 border-t pt-4">
         <div className="flex justify-between mb-4">
           <span className="font-semibold">Total:</span>
-          <span className="font-bold text-red-600">৳{totalPrice}</span>
+          <span className="font-bold text-red-600">${totalPrice}</span>
         </div>
         {/* Checkout button opens the modal via setCheckoutOpen */}
         <button
