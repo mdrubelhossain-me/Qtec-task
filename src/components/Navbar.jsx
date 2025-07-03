@@ -7,8 +7,8 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <div className="container mx-auto">
-      <nav className="bg-white shadow-md px-4 py-4 flex items-center justify-between relative font-primary">
+    <div className="w-full bg-white shadow-md">
+      <nav className="container mx-auto  px-4 py-4 flex items-center justify-between relative">
         {/* Left Section */}
         <div className="flex items-center gap-3">
           {/* Mobile Hamburger */}
@@ -21,7 +21,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-6 font-medium">
+        <ul className="hidden md:flex items-center gap-6 font-primary font-medium">
           <li>
             <a href="#" className="hover:text-red-600 transition">
               Home
