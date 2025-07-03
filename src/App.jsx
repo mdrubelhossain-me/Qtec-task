@@ -4,7 +4,7 @@ import MainLayout from './layout/MainLayout';
 import Home from './pages/Home';
 import Product from './pages/Product';
 import ProductDetails from './pages/ProductDetails';
-import Cart from './pages/Cart';
+// import Cart from './pages/Cart';
 import Navbar from './components/Navbar';
 import Footer from "./components/Footer";
 
@@ -15,7 +15,7 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path='products' element={<Product />} />
         <Route path='products/:id' element={<ProductDetails />} />
-        <Route path='cart' element={<Cart />} />
+        {/* <Route path='cart' element={<Cart />} /> */}
       </Route>
     </Routes>
   );

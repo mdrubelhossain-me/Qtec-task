@@ -3,10 +3,12 @@ import { List, X, ShoppingCart, Plus, Minus } from "@phosphor-icons/react";
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext.jsx';
 import CartSidebar from './CartSidebar.jsx';
+import CheckoutModal from './CheckoutModal.jsx';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
   const { cartItems } = useContext(CartContext);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -63,7 +65,8 @@ const Navbar = () => {
       </nav>
 
       {/* 🛒 Cart Sidebar */}
-      <CartSidebar cartOpen={cartOpen} toggleCart={toggleCart} />
+      <CartSidebar cartOpen={cartOpen} toggleCart={toggleCart} setCheckoutOpen={setCheckoutOpen} />
+      <CheckoutModal isOpen={checkoutOpen} onClose={() => setCheckoutOpen(false)} />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { X, Plus, Minus } from "@phosphor-icons/react";
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext.jsx';
 
-const CartSidebar = ({ cartOpen, toggleCart }) => {
+const CartSidebar = ({ cartOpen, toggleCart, setCheckoutOpen }) => {
   const { cartItems, increaseQty, decreaseQty, totalPrice } = useContext(CartContext);
 
   return (
@@ -56,9 +56,12 @@ const CartSidebar = ({ cartOpen, toggleCart }) => {
           <span className="font-semibold">Total:</span>
           <span className="font-bold text-red-600">৳{totalPrice}</span>
         </div>
-        <Link to="/cart" className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">
-          View Cart
-        </Link>
+        <button
+          className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition"
+          onClick={() => setCheckoutOpen(true)}
+        >
+          Checkout
+        </button>
       </div>
     </div>
   );
