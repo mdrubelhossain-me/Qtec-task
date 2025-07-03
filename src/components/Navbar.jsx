@@ -7,7 +7,8 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <nav className="bg-white shadow-md px-4 py-3 flex items-center justify-between">
+    <div className="container">
+        <nav className="bg-white shadow-md px-4 py-3 flex items-center justify-between">
       {/* Left Section */}
       <div className="flex items-center gap-3">
         {/* Mobile Hamburger */}
@@ -47,6 +48,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    </div>
   );
 };
 
