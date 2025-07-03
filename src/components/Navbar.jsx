@@ -26,7 +26,9 @@ const Navbar = () => {
           <div className="md:hidden cursor-pointer" onClick={toggleMenu}>
             {menuOpen ? <X size={28} /> : <List size={28} />}
           </div>
-          <Link to="/" className="text-xl font-bold">Qtec</Link>
+          <Link to="/" className="text-xl font-bold">
+            Qtec
+          </Link>
         </div>
 
         {/* Desktop Menu: navigation links and cart icon */}
@@ -36,7 +38,7 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-          <li className="relative cursor-pointer">
+          <li className="relative cursor-pointer mt-1">
             {/* Cart icon with item count badge */}
             <button onClick={toggleCart}>
               <ShoppingCart size={24} />
@@ -49,9 +51,9 @@ const Navbar = () => {
 
         {/* Mobile Cart Icon */}
         <div className="md:hidden relative text-white">
-          <button onClick={toggleCart}>
+          <button onClick={toggleCart} className="mt-2">
             <ShoppingCart size={24} />
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+            <span className="absolute -top-1 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
               {cartItems.length}
             </span>
           </button>

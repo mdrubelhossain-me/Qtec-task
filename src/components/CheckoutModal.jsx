@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { X, Plus, Minus } from "@phosphor-icons/react";
 
 const CheckoutModal = ({ isOpen, onClose }) => {
   const {
@@ -29,7 +30,7 @@ const CheckoutModal = ({ isOpen, onClose }) => {
             reset();
           }}
         >
-          &times;
+          <X size={24} />
         </button>
 
         <h2 className="text-xl font-bold mb-4">Checkout</h2>

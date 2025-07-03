@@ -1,14 +1,12 @@
-// CartSidebar.jsx
-// Sidebar component for displaying cart items, quantity controls, and checkout button.
-// Receives cartOpen (sidebar visibility), toggleCart (close/open handler), and setCheckoutOpen (to open checkout modal) as props.
 import React, { useContext } from "react";
 import { X, Plus, Minus } from "@phosphor-icons/react";
-import { Link } from 'react-router-dom';
-import { CartContext } from '../context/CartContext.jsx';
+import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext.jsx";
 
 const CartSidebar = ({ cartOpen, toggleCart, setCheckoutOpen }) => {
   // Access cart state and actions from context
-  const { cartItems, increaseQty, decreaseQty, totalPrice } = useContext(CartContext);
+  const { cartItems, increaseQty, decreaseQty, totalPrice } =
+    useContext(CartContext);
 
   return (
     // Sidebar container, slides in/out based on cartOpen
@@ -28,39 +26,43 @@ const CartSidebar = ({ cartOpen, toggleCart, setCheckoutOpen }) => {
       {/* Cart items list */}
       <div className="space-y-4 max-h-[70vh] overflow-y-auto">
         {cartItems.map((item) => (
-          <div
-            key={item.id}
-            className="border p-3 rounded-md"
-          >
+          <div key={item.id} className="border p-3 rounded-md">
             <div>
               <div className="flex items-start gap-3">
-                <img src={item.image} alt={item.title} className="w-10 h-10 object-cover rounded" />
-                <h4 className="text-md">{item.title.split(' ').length > 4 ? item.title.split(' ').slice(0, 4).join(' ') + '...' : item.title}</h4>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-10 h-10 object-cover rounded"
+                />
+                <h4 className="text-md">
+                  {item.title.split(" ").length > 4
+                    ? item.title.split(" ").slice(0, 4).join(" ") + "..."
+                    : item.title}
+                </h4>
               </div>
-      
             </div>
             {/* Quantity controls */}
             <div className="flex items-center justify-between mt-3">
-            <p className="text-sm text-gray-500 flex items-center gap-1">
-                <span>${item.price}</span>   
-                <X size={10} /> 
+              <p className="text-sm text-gray-500 flex items-center gap-1">
+                <span>${item.price}</span>
+                <X size={10} />
                 <span>{item.quantity}</span>
               </p>
-             <div className=" w-40 flex items-center justify-end gap-3">
-             <button
-                className="bg-gray-200 p-1 rounded"
-                onClick={() => decreaseQty(item.id)}
-              >
-                <Minus size={14} />
-              </button>
-              <span className="w-4 text-center text-sm">{item.quantity}</span>
-              <button
-                className="bg-gray-200 p-1 rounded"
-                onClick={() => increaseQty(item.id)}
-              >
-                <Plus size={14} />
-              </button>
-             </div>
+              <div className=" w-40 flex items-center justify-end gap-3">
+                <button
+                  className="bg-gray-200 p-1 rounded"
+                  onClick={() => decreaseQty(item.id)}
+                >
+                  <Minus size={14} />
+                </button>
+                <span className="w-3 text-center text-sm">{item.quantity}</span>
+                <button
+                  className="bg-gray-200 p-1 rounded"
+                  onClick={() => increaseQty(item.id)}
+                >
+                  <Plus size={14} />
+                </button>
+              </div>
             </div>
           </div>
         ))}
@@ -84,4 +86,4 @@ const CartSidebar = ({ cartOpen, toggleCart, setCheckoutOpen }) => {
   );
 };
 
-export default CartSidebar; 
+export default CartSidebar;
