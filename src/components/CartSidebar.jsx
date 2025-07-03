@@ -1,17 +1,23 @@
+// CartSidebar.jsx
+// Sidebar component for displaying cart items, quantity controls, and checkout button.
+// Receives cartOpen (sidebar visibility), toggleCart (close/open handler), and setCheckoutOpen (to open checkout modal) as props.
 import React, { useContext } from "react";
 import { X, Plus, Minus } from "@phosphor-icons/react";
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext.jsx';
 
 const CartSidebar = ({ cartOpen, toggleCart, setCheckoutOpen }) => {
+  // Access cart state and actions from context
   const { cartItems, increaseQty, decreaseQty, totalPrice } = useContext(CartContext);
 
   return (
+    // Sidebar container, slides in/out based on cartOpen
     <div
       className={`fixed top-0 right-0 h-full w-80 bg-white shadow-lg p-4 z-50 transform transition-transform duration-300 ${
         cartOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
+      {/* Header with title and close button */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-bold">Your Cart</h2>
         <button onClick={toggleCart}>
@@ -19,6 +25,7 @@ const CartSidebar = ({ cartOpen, toggleCart, setCheckoutOpen }) => {
         </button>
       </div>
 
+      {/* Cart items list */}
       <div className="space-y-4 max-h-[70vh] overflow-y-auto">
         {cartItems.map((item) => (
           <div
@@ -31,6 +38,7 @@ const CartSidebar = ({ cartOpen, toggleCart, setCheckoutOpen }) => {
                 ৳{item.price} × {item.quantity}
               </p>
             </div>
+            {/* Quantity controls */}
             <div className="flex items-center gap-2">
               <button
                 className="bg-gray-200 p-1 rounded"
@@ -50,12 +58,13 @@ const CartSidebar = ({ cartOpen, toggleCart, setCheckoutOpen }) => {
         ))}
       </div>
 
-      {/* Footer */}
+      {/* Footer: total price and checkout button */}
       <div className="mt-6 border-t pt-4">
         <div className="flex justify-between mb-4">
           <span className="font-semibold">Total:</span>
           <span className="font-bold text-red-600">৳{totalPrice}</span>
         </div>
+        {/* Checkout button opens the modal via setCheckoutOpen */}
         <button
           className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition"
           onClick={() => setCheckoutOpen(true)}
