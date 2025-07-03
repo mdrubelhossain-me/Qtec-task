@@ -1,11 +1,9 @@
-// Navbar.jsx
-// Main navigation bar for the app. Handles menu, cart sidebar, and checkout modal state.
 import React, { useState, useContext } from "react";
 import { List, X, ShoppingCart } from "@phosphor-icons/react";
-import { Link } from 'react-router-dom';
-import { CartContext } from '../context/CartContext.jsx';
-import CartSidebar from './CartSidebar.jsx';
-import CheckoutModal from './CheckoutModal.jsx';
+import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext.jsx";
+import CartSidebar from "./CartSidebar.jsx";
+import CheckoutModal from "./CheckoutModal.jsx";
 
 const Navbar = () => {
   // State for mobile menu, cart sidebar, and checkout modal
@@ -72,9 +70,16 @@ const Navbar = () => {
       </nav>
 
       {/* Cart Sidebar: slides in from right when cartOpen is true */}
-      <CartSidebar cartOpen={cartOpen} toggleCart={toggleCart} setCheckoutOpen={setCheckoutOpen} />
+      <CartSidebar
+        cartOpen={cartOpen}
+        toggleCart={toggleCart}
+        setCheckoutOpen={setCheckoutOpen}
+      />
       {/* Checkout Modal: overlays the whole screen when checkoutOpen is true */}
-      <CheckoutModal isOpen={checkoutOpen} onClose={() => setCheckoutOpen(false)} />
+      <CheckoutModal
+        isOpen={checkoutOpen}
+        onClose={() => setCheckoutOpen(false)}
+      />
     </div>
   );
 };
