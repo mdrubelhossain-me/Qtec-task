@@ -18,11 +18,11 @@ const Navbar = () => {
   const toggleCart = () => setCartOpen(!cartOpen);
 
   return (
-    <div className="w-full bg-white shadow-md fixed top-0 z-50">
+    <div className="w-full bg-gray-900 shadow-md fixed top-0 z-50">
       {/* Main navigation bar */}
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between relative">
         {/* Left Section: logo and mobile menu button */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 text-white">
           <div className="md:hidden cursor-pointer" onClick={toggleMenu}>
             {menuOpen ? <X size={28} /> : <List size={28} />}
           </div>
@@ -30,9 +30,9 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu: navigation links and cart icon */}
-        <ul className="hidden md:flex items-center gap-6 font-medium">
+        <ul className="hidden md:flex items-center gap-6 font-medium text-white">
           <li>
-            <Link to="/" className="hover:text-red-600 transition">
+            <Link to="/" className="hover:text-red-600 transition duration-300">
               Home
             </Link>
           </li>
@@ -48,7 +48,7 @@ const Navbar = () => {
         </ul>
 
         {/* Mobile Cart Icon */}
-        <div className="md:hidden relative">
+        <div className="md:hidden relative text-white">
           <button onClick={toggleCart}>
             <ShoppingCart size={24} />
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
@@ -63,7 +63,7 @@ const Navbar = () => {
             menuOpen ? "max-h-40 py-4 gap-4" : "max-h-0 py-0 gap-0"
           }`}
         >
-          <Link to="/" className="hover:text-red-600 transition">
+          <Link to="/" className="hover:text-red-600 text-gray-900 transition">
             Home
           </Link>
         </div>
