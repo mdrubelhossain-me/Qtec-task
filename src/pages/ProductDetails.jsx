@@ -32,7 +32,7 @@ const ProductDetails = () => {
         />
         <div>
           <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
-          <p className="text-lg text-gray-600 mb-2">{product.brand}</p>
+          <p className="text-lg text-gray-600 mb-2">{product.category}</p>
           <p className="text-red-600 text-2xl font-bold mb-2">
             ${product.price.toFixed(2)}
           </p>
@@ -46,7 +46,18 @@ const ProductDetails = () => {
           >
             {product.availability}
           </p>
-          <p className="mb-4">{product.description}</p>
+          <div className="mb-3">
+            <p className="text-md">
+              Brand: <span className="text-gray-600">{product.brand}</span>
+            </p>
+            <p className="text-md">
+              Sku: <span className="text-gray-600">{product.sku}</span>
+            </p>
+            <p className="text-md">
+              Color: <span className="text-gray-600">{product.color}</span>
+            </p>
+          </div>
+          <p className="mb-4 text-gray-800">{product.description}</p>
           {/* Add to Cart button: only enabled if product is in stock */}
           <button
             className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
