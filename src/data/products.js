@@ -1,13 +1,13 @@
 // src/data/products.js
 
-import watchOne from '../assets/images/watch1.jpg';
-import watchTwo from '../assets/images/watch2.jpg';
-import watchThree from '../assets/images/watch3.jpg';
-import menBelt from '../assets/images/menbelt.jpg';
-import sunglassOne from '../assets/images/sunglass1.jpg';
-import sunglassTwo from '../assets/images/sunglass2.jpg';
-import womenBagOne from '../assets/images/womenbag1.jpg';
-import womenBagTwo from '../assets/images/womenbag2.jpg';
+import watchOne from '../assets/images/p1.jpg';
+import watchTwo from '../assets/images/p5.jpg';
+import watchThree from '../assets/images/p7.jpg';
+import menBelt from '../assets/images/p8.jpg';
+import sunglassOne from '../assets/images/p2.jpg';
+import sunglassTwo from '../assets/images/p3.jpg';
+import womenBagOne from '../assets/images/p4.jpg';
+import womenBagTwo from '../assets/images/p6.jpg';
 
 const products = [
   // Watches
