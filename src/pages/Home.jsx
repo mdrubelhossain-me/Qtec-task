@@ -3,8 +3,7 @@ import Product from './Product';
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home page</h1>
+    <div className='py-20'>
       <Product/>
     </div>
   )

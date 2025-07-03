@@ -58,7 +58,7 @@ const CartSidebar = ({ cartOpen, toggleCart, setCheckoutOpen }) => {
         ))}
       </div>
 
-      {/* Footer: total price and checkout button */}
+      {/* total price and checkout button */}
       <div className="mt-6 border-t pt-4">
         <div className="flex justify-between mb-4">
           <span className="font-semibold">Total:</span>

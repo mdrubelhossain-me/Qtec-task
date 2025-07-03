@@ -18,7 +18,7 @@ const Navbar = () => {
   const toggleCart = () => setCartOpen(!cartOpen);
 
   return (
-    <div className="w-full bg-white shadow-md relative z-50">
+    <div className="w-full bg-white shadow-md fixed top-0 z-50">
       {/* Main navigation bar */}
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between relative">
         {/* Left Section: logo and mobile menu button */}
@@ -26,7 +26,7 @@ const Navbar = () => {
           <div className="md:hidden cursor-pointer" onClick={toggleMenu}>
             {menuOpen ? <X size={28} /> : <List size={28} />}
           </div>
-          <h1 className="text-xl font-bold">Qtec</h1>
+          <Link to="/" className="text-xl font-bold">Qtec</Link>
         </div>
 
         {/* Desktop Menu: navigation links and cart icon */}

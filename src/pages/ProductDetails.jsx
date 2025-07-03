@@ -12,7 +12,7 @@ const ProductDetails = () => {
   if (!product) return <div className="p-8 text-center">Product not found.</div>;
 
   return (
-    <div className="container mx-auto px-6 py-8">
+    <div className="container mx-auto px-6 py-20 mt-5">
       <div className="flex flex-col md:flex-row gap-8">
         <img
           src={product.image}
